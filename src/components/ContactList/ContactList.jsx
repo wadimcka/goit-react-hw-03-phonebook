@@ -3,22 +3,23 @@ import {
   Contact,
   DeleteContactBtn,
   ListOfContacts,
-} from './ContacctList.styled';
+} from './ContactList.styled';
 
 function ContactList({ contacts, handlerDeleteContact }) {
   return (
     <ListOfContacts>
-      {contacts.map(({ id, name, number }) => (
-        <Contact key={id}>
-          {name} : {number}
-          <DeleteContactBtn
-            type="button"
-            onClick={() => handlerDeleteContact(id)}
-          >
-            Delete
-          </DeleteContactBtn>
-        </Contact>
-      ))}
+      {contacts &&
+        contacts.map(({ id, name, number }) => (
+          <Contact key={id}>
+            {name} : {number}
+            <DeleteContactBtn
+              type="button"
+              onClick={() => handlerDeleteContact(id)}
+            >
+              Delete
+            </DeleteContactBtn>
+          </Contact>
+        ))}
     </ListOfContacts>
   );
 }
